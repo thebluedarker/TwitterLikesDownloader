@@ -56,11 +56,16 @@ javascript:
         for (const img of newImgs) {
             var url = normalizeUrl(img.src);
             urls.push(url);
-            try {
-                var fname = img.closest('[data-testid="tweet"]').innerText.split('\n').slice(0, -3).join(' ') + '.' + getExtension(url);
-            } catch (e) {
-                var fname = '';
-            }
+            for(i=0;i<20;++i){
+				try {
+					var fname = img.closest('[data-testid="tweet"]').innerText.split('\n').slice(0, -4).join(' ') + '.' + getExtension(url);
+				} catch (e) {
+					var fname = '';
+				}
+				if(fname != ''){
+					continue;
+				}
+			}
             names.push(fname);
             console.log(urls.length, url, fname);
             img.scrollIntoView();
