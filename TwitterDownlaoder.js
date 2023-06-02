@@ -23,7 +23,7 @@ javascript:
         return new Promise(resolve => setTimeout(resolve, ms));
     }
     function normalizeUrl(url) {
-        return !!url ? url.replace(/\&name=[^&]+/, "") : '';
+        return !!url ? url.replace(/\&name=[^&]+/, "&name=orig") : '';/*设置下载图片的尺寸类型，如small、large*/
     }
     function getExtension(url) {
         return new URL(url).searchParams.get('format') || new URL(url).pathname.split('.').pop() || 'gif'
