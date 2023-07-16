@@ -1,7 +1,7 @@
 javascript:
 (async function () {
     /**
-     * github.com/FarisHijazi/TwitterDownloader
+     * github.com/thebluedarker/TwitterLikesDownloader
      * JavaScript to download images from twitter bookmarks or likes
      * 
      * will scroll through the feed and grab URLs and download them
@@ -58,11 +58,11 @@ javascript:
             urls.push(url);
             for(i=0;i<20;++i){
 				try {
-					var fname = img.closest('[data-testid="tweet"]').innerText.split('\n').slice(0, -4).join(' ') + '.' + getExtension(url);
+					var fname = img.closest('[data-testid="tweet"]').innerText.split('\n').slice(0, 4).join(' ') + '.' + getExtension(url);
 				} catch (e) {
-					var fname = '';
+					var fname = 'NoName';
 				}
-				if(fname != ''){
+				if(fname != 'NoName'){
 					continue;
 				}
 			}
